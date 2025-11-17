@@ -1,0 +1,122 @@
+/* --- Grundlayout --- */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: #0f1720;
+    font-family: 'Inter', system-ui, Arial, sans-serif;
+    color: #e6eef6;
+    overflow: hidden;
+}
+
+/* --- Klassenauswahl --- */
+#classSelection {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(20, 20, 30, 0.95);
+    border: 2px solid #8cf;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    z-index: 100;
+}
+#classSelection h2 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+#classSelection select, #classSelection input {
+    padding: 6px;
+    margin: 6px 0;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #8cf;
+    background-color: #14202b;
+    color: #e6eef6;
+}
+#classSelection button {
+    padding: 8px 14px;
+    margin-top: 10px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #2b6b5a;
+    color: #fff;
+    cursor: pointer;
+}
+#classSelection button:hover {
+    background-color: #3a7b6b;
+}
+
+/* --- Haupt-Canvas --- */
+#gameCanvas {
+    display: block;
+    margin: 0 auto;
+    background: linear-gradient(to bottom, #9ad08c 0%, #6ea564 100%);
+    border: 3px solid #14202b;
+    border-radius: 8px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* --- HUD --- */
+#hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(20, 20, 30, 0.7);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+}
+#hud span {
+    display: block;
+    margin-bottom: 4px;
+}
+#cooldowns span {
+    font-weight: bold;
+    color: #f88;
+}
+
+/* --- Minimap --- */
+#minimap {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: 2px solid #8cf;
+    background-color: rgba(10,10,10,0.6);
+    border-radius: 8px;
+    width: 200px;
+    height: 200px;
+}
+
+/* --- Spieler & NPC Marker auf Minimap --- */
+.minimap-player {
+    width: 4px;
+    height: 4px;
+    background-color: #0f0; /* Spieler grün */
+    position: absolute;
+}
+.minimap-enemy {
+    width: 4px;
+    height: 4px;
+    background-color: #f00; /* Gegner rot */
+    position: absolute;
+}
+
+/* --- Cooldowns visuell --- */
+.cooldown-bar {
+    display: inline-block;
+    width: 40px;
+    height: 6px;
+    background-color: #444;
+    border-radius: 3px;
+    margin-left: 6px;
+    vertical-align: middle;
+}
+.cooldown-fill {
+    height: 6px;
+    background-color: #f88;
+    border-radius: 3px;
+    width: 0%;
+}
