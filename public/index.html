@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multiplayer 2D RPG</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- Klassenauswahl -->
+<div id="classSelection">
+    <h2>Wähle deine Klasse</h2>
+    <label>Name: <input type="text" id="playerName" placeholder="Spielername"></label>
+    <select id="classSelect">
+        <option value="ninja">Ninja</option>
+        <option value="mage">Magier</option>
+        <option value="warrior">Krieger</option>
+        <option value="archer">Bogenschütze</option>
+        <option value="paladin">Paladin</option>
+        <option value="rogue">Rogue</option>
+        <option value="cleric">Kleriker</option>
+        <option value="berserker">Berserker</option>
+        <option value="dragon">Drache</option>
+    </select>
+    <button id="spawnBtn">Spawn</button>
+</div>
+
+<!-- Spiel-Canvas -->
+<canvas id="gameCanvas" width="1024" height="768"></canvas>
+
+<!-- HUD -->
+<div id="hud">
+    <span id="hp">HP: 0</span>
+    <span id="level">Level: 1</span>
+    <span id="xp">XP: 0</span>
+    <div id="cooldowns">Q: <span id="qCd">0</span>s | E: <span id="eCd">0</span>s | X: <span id="xCd">0</span>s</div>
+</div>
+
+<!-- Minimap -->
+<canvas id="minimap" width="200" height="200"></canvas>
+
+<!-- Socket.io -->
+<script src="/socket.io/socket.io.js"></script>
+<script src="scripts.js"></script>
+</body>
+</html>
