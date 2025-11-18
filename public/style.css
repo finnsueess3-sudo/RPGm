@@ -1,139 +1,26 @@
-/* --- Global --- */
-body {
-  margin: 0;
-  background-color: #1e1e1e;
-  font-family: 'Arial', sans-serif;
-  overflow: hidden;
-}
+/* style.css - lightweight, clear UI, green menu only, canvas neutral */
 
-canvas#game {
-  display: block;
-  margin: 0 auto;
-  background-color: #7ec850; /* Grundfarbe Boden */
-  border: 3px solid #333;
-}
+html,body{height:100%;margin:0;background:#0f1720;color:#e6eef6;font-family:Inter,Arial,sans-serif;overflow:hidden;}
+#game{display:block;margin:0 auto;position:absolute;left:0;top:0;}
 
-/* --- Player styles --- */
-.player {
-  position: absolute;
-  width: 22px;
-  height: 28px;
-  border-radius: 4px;
-  transition: transform 0.1s linear;
+/* class selection - green */
+#classSelection{
+  position:absolute; left:50%; top:8%; transform:translateX(-50%);
+  background:linear-gradient(180deg,#2e7d32,#1b5e20);
+  padding:18px;border-radius:10px;border:2px solid #174d14; z-index:50;
 }
+#classSelection input, #classSelection select {
+  width:200px;padding:8px;margin:6px;border-radius:6px;border:1px solid rgba(255,255,255,0.06);
+  background:#dcedc8;color:#1b5e20;
+}
+#classSelection button { padding:8px 14px;border-radius:8px;background:#66bb6a;border:none;color:white;cursor:pointer; }
 
-/* Healthbar */
-.player .hp-bar {
-  position: absolute;
-  top: -6px;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background-color: #222;
-  border-radius: 2px;
-  overflow: hidden;
-}
-.player .hp-bar-inner {
-  width: 100%;
-  height: 100%;
-  background-color: #f00;
-  transition: width 0.1s linear;
-}
+/* hud */
+#hud{position:absolute;left:10px;top:10px;background:rgba(0,0,0,0.5);padding:8px;border-radius:8px;}
+#hud div{margin:3px 0;font-size:14px;}
 
-/* --- Classes Colors --- */
-.player.ninja { background-color: #2b2b2b; border: 1px solid #000; }
-.player.mage { background-color: #4169E1; border: 1px solid #00008B; }
-.player.warrior { background-color: #8B4513; border: 1px solid #5A2C0B; }
-.player.archer { background-color: #228B22; border: 1px solid #006400; }
-.player.paladin { background-color: #FFD700; border: 1px solid #DAA520; }
-.player.rogue { background-color: #4B0082; border: 1px solid #2E0854; }
-.player.cleric { background-color: #FF69B4; border: 1px solid #C71585; }
-.player.berserker { background-color: #B22222; border: 1px solid #8B0000; }
-.player.dragon { background-color: #FF4500; border: 1px solid #8B2500; }
+/* minimap (simple box, client draws points in it) */
+#minimap{position:absolute;right:10px;top:10px;width:180px;height:180px;border:2px solid rgba(255,255,255,0.06);background:rgba(0,0,0,0.35);border-radius:6px;}
 
-/* --- Projectile --- */
-.projectile {
-  position: absolute;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background-color: yellow;
-}
-
-/* --- Minimap --- */
-#minimap {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  width: 200px;
-  height: 200px;
-  background: rgba(0,0,0,0.4);
-  border: 2px solid #555;
-  z-index: 100;
-}
-
-/* --- Minimap Player Dot --- */
-.miniplayer {
-  width: 4px;
-  height: 4px;
-  position: absolute;
-  border-radius: 50%;
-}
-.miniplayer.self { background-color: #0F0; }
-.miniplayer.enemy { background-color: #F00; }
-
-/* --- Attack Animations --- */
-.attack-dash {
-  animation: dashEffect 0.2s ease-out;
-}
-.attack-sword {
-  animation: swordSwing 0.3s linear;
-}
-.attack-bolt {
-  animation: boltShot 0.25s linear;
-}
-.attack-arrow {
-  animation: arrowShot 0.25s linear;
-}
-.attack-firebeam {
-  animation: fireBeam 0.5s linear;
-}
-
-/* --- Keyframe Animations --- */
-@keyframes dashEffect {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.3); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 0; }
-}
-@keyframes swordSwing {
-  0% { transform: rotate(0deg); }
-  50% { transform: rotate(45deg); }
-  100% { transform: rotate(0deg); }
-}
-@keyframes boltShot {
-  0% { transform: scale(0.5); opacity: 0; }
-  50% { transform: scale(1.2); opacity: 1; }
-  100% { transform: scale(1); opacity: 0; }
-}
-@keyframes arrowShot {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(50px); }
-}
-@keyframes fireBeam {
-  0% { transform: scaleY(0); opacity: 0.5; }
-  100% { transform: scaleY(1); opacity: 1; }
-}
-
-/* --- Status Effects --- */
-.status-poison {
-  box-shadow: 0 0 10px 2px purple inset;
-}
-.status-invisible {
-  opacity: 0.3;
-}
-.status-shield {
-  box-shadow: 0 0 10px 3px cyan;
-}
-.status-ulti {
-  box-shadow: 0 0 15px 5px gold;
-}
+/* small responsive */
+@media (max-width:900px){ #classSelection{width:90%;left:50%;top:6%;} }
