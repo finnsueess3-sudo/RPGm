@@ -324,7 +324,7 @@ function aoeHealServer(p, radius, amt){
     if(Math.hypot(t.x - p.x, t.y - p.y) < radius) t.hp = Math.min(t.maxHp, t.hp + amt);
   }
 }
-function --noop(){}
+function noop(){}
 function shieldBashServer(p, radius){ dealNearby(p, radius, 3); }
 function lightStrikeServer(p, radius){ dealNearby(p, radius, 4); }
 function divineSmiteServer(p, range){ beamServer(p, range, 4 + Math.floor(p.level/2)); }
