@@ -1,64 +1,40 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Multiplayer RPG</title>
-
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
-
-    <!-- Socket.IO -->
-    <script src="/socket.io/socket.io.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Light Multiplayer RPG</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="classSelection">
+    <h2>Wähle Klasse & Name</h2>
+    <input id="playerName" placeholder="Name" maxlength="12">
+    <select id="classPicker">
+      <option value="ninja">Ninja</option>
+      <option value="mage">Magier</option>
+      <option value="warrior">Krieger</option>
+      <option value="archer">Bogenschütze</option>
+      <option value="paladin">Paladin</option>
+      <option value="rogue">Rogue</option>
+      <option value="cleric">Kleriker</option>
+      <option value="berserker">Berserker</option>
+      <option value="dragon">Drachen</option>
+    </select>
+    <button id="spawnBtn">Start</button>
+  </div>
 
-    <!-- Spieler-Klassenauswahl -->
-    <div id="classSelection">
-        <h2>Wähle deine Klasse</h2>
+  <canvas id="game"></canvas>
 
-        <input type="text" id="playerName" placeholder="Name" maxlength="16">
+  <div id="hud">
+    <div id="hp">HP: 0 / 0</div>
+    <div id="stats">Level: 1 | XP: 0</div>
+    <div id="cds">Q: <span id="qCd">0</span>s E: <span id="eCd">0</span>s X: <span id="xCd">0</span>s</div>
+  </div>
 
-        <br>
+  <div id="minimap" aria-hidden="true"></div>
 
-        <select id="classPicker">
-            <option value="ninja">Ninja (Dash + Vergiften)</option>
-            <option value="mage">Magier (Blitze + Beam)</option>
-            <option value="warrior">Krieger (Schwert + Schild)</option>
-            <option value="archer">Bogenschütze (Bogen + Multi Shot)</option>
-            <option value="paladin">Paladin (Smite + Schildstoß)</option>
-            <option value="rogue">Rogue (Stab + Unsichtbarkeit)</option>
-            <option value="cleric">Kleriker (Heilung + Buff)</option>
-            <option value="berserker">Berserker (Rage + Blutrausch)</option>
-            <option value="dragon">Dragonborn (Feuer + Drachenform)</option>
-        </select>
-
-        <br>
-
-        <button id="spawnBtn">Starten</button>
-    </div>
-
-    <!-- Hauptcanvas -->
-    <canvas id="game" width="1600" height="900"></canvas>
-
-    <!-- HUD -->
-    <div id="hud">
-        <span id="hudHP">HP: 0 / 0</span>
-        <span id="hudLVL">Level: 1</span>
-        <span id="hudXP">XP: 0</span>
-
-        <div id="cooldowns">
-            <span>Q:</span><div class="cooldown-bar"><div id="cdQ" class="cooldown-fill"></div></div>
-            <span>E:</span><div class="cooldown-bar"><div id="cdE" class="cooldown-fill"></div></div>
-            <span>X (ULT):</span><div class="cooldown-bar"><div id="cdX" class="cooldown-fill"></div></div>
-        </div>
-    </div>
-
-    <!-- Minimap -->
-    <div id="minimap"></div>
-
-    <!-- Client Script -->
-    <script src="scripts.js"></script>
-
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="scripts.js"></script>
 </body>
 </html>
